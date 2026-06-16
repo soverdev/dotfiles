@@ -1,7 +1,7 @@
 configuration {
 	modi: "drun,window,run";
 	lines: 5;
-	font: "JetBrainsMono NFM Bold 14";
+	font: "JetBrainsMono NF Bold 14";
 	show-icons: true;
 	terminal: "kitty";
 	drun-display-format: "{icon} {name} [<span weight='light' size='small'><i>({generic})</i></span>]";
@@ -9,9 +9,9 @@ configuration {
 	disable-history: false;
 	hide-scrollbar: true;
 	sidebar-mode: true;
-	display-drun: " 󰀘  Apps ";
-	display-window: "   Window ";
-	display-run: "   Command ";
+	display-drun: "   Apps ";
+	display-window: "   Windows ";
+	display-run: "   Command ";
 }
 
 @theme "theme.rasi"
