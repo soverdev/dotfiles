@@ -15,6 +15,9 @@ COUNTRY="__COUNTRY__"
 #       pick the first city location. Consider automatic location detection in this case.
 CITY="__CITY__"
 
+# Locale for text (default for dates: system locale, default for text: EN)
+LOCALE="nl_NL.UTF-8"
+
 ## Rounding options
 ROUND_TEMP=1
 ROUND_WIND=1
@@ -84,16 +87,31 @@ get_moon_phase() {
 	local index=$(printf "%.0f" "$(get_moon_age)")
 	local phase=""
 
-	case $index in
-		0 | 29)                          phase="New Moon" ;;
-		1 | 2 | 3 | 4 | 5 | 6)           phase="Waxing Crescent" ;;
-		7)                               phase="First Quarter" ;;
-		8 | 9 | 10 | 11 | 12 | 13)       phase="Waxing Gibbous" ;;
-		14 | 15)                         phase="Full Moon" ;;
-		16 | 17 | 18 | 19 | 20 | 21)     phase="Waning Gibbous" ;;
-		22)                              phase="Last Quarter" ;;
-		23 | 24 | 25 | 26 | 27 | 28)     phase="Waning Crescent" ;;
-	esac
+	if [[ "$LOCALE" == "nl_NL.UTF-8" ]]; then
+		# NL, see: https://github.com/rejuvenate/lovelace-horizon-card/issues/171
+		case $index in
+			0 | 29)                      phase="Nieuwe maan" ;;
+			1 | 2 | 3 | 4 | 5 | 6)       phase="Wassende halve maan" ;;
+			7)                           phase="Eerste kwartier" ;;
+			8 | 9 | 10 | 11 | 12 | 13)   phase="Wassende maan" ;;
+			14 | 15)                     phase="Volle maan" ;;
+			16 | 17 | 18 | 19 | 20 | 21) phase="Afnemende maan" ;;
+			22)                          phase="Laatste kwartier" ;;
+			23 | 24 | 25 | 26 | 27 | 28) phase="Afnemende halve maan" ;;
+		esac
+	else
+		# EN
+		case $index in
+			0 | 29)                      phase="New Moon" ;;
+			1 | 2 | 3 | 4 | 5 | 6)       phase="Waxing Crescent" ;;
+			7)                           phase="First Quarter" ;;
+			8 | 9 | 10 | 11 | 12 | 13)   phase="Waxing Gibbous" ;;
+			14 | 15)                     phase="Full Moon" ;;
+			16 | 17 | 18 | 19 | 20 | 21) phase="Waning Gibbous" ;;
+			22)                          phase="Last Quarter" ;;
+			23 | 24 | 25 | 26 | 27 | 28) phase="Waning Crescent" ;;
+		esac
+	fi
 
 	echo "$phase"
 }
@@ -124,7 +142,13 @@ get_moon_icon() {
 
 # Function that provides moon info for module tooltip
 get_moon_tooltip() {
-	echo "$(get_moon_phase) ($(get_moon_age) days, $(get_moon_illumination)%% lit)"
+	if [[ "$LOCALE" == "nl_NL.UTF-8" ]]; then
+		# NL
+		echo "$(get_moon_phase) ($(get_moon_age) dagen, $(get_moon_illumination)%% verlicht)"
+	else
+		# EN
+		echo "$(get_moon_phase) ($(get_moon_age) days, $(get_moon_illumination)%% lit)"
+	fi
 }
 
 # Function to map weather code to a Nerd Font icon

@@ -53,7 +53,8 @@
 	"wireplumber": {
 		"format": "<span font='16' rise='-2000'>{icon}</span> {volume}%",
 		"tooltip": false,
-		"format-muted": "<span font='16' rise='-2000'>󰖁</span> Muted",
+		// "format-muted": "<span font='16' rise='-2000'>󰖁</span> Muted",
+		"format-muted": "<span font='16' rise='-2000'>󰖁</span> Uit",
 		"on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
 		"on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+",
 		"on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-",
@@ -69,12 +70,13 @@
 	},
 	"cpu": {
 		"interval": 3,
-		"format": "<span font='16' rise='-2000'>󰍛</span> {}%",
+		"format": "<span font='16' rise='-2000'>󰍛</span> {usage}%",
 	},
 	"memory": {
 		"interval": 3,
 		"format": "<span font='18' rise='-3500'></span> {used} GiB",
-		"tooltip-format": "{percentage}% used"
+		// "tooltip-format": "{percentage}% used"
+		"tooltip-format": "{percentage}% gebruikt"
 	},
 	"network": {
 		"interval": 3,
@@ -82,9 +84,11 @@
 		"format-icons": ["󰤟", "󰤢", "󰤥", "󰤨"],
 		"format-wifi": "<span font='18' rise='-3000'>{icon}</span> {essid}",
 		"format-ethernet": "<span font='18' rise='-3000'>󰈀</span> {ifname}",
-		"format-disconnected": "<span font='18' rise='-3000'>󰤮</span> No Internet",
+		// "format-disconnected": "<span font='18' rise='-3000'>󰤮</span> No Internet",
+		"format-disconnected": "<span font='18' rise='-3000'>󰤮</span> Geen internet",
 		"tooltip-format": "[{ifname}] UP: {bandwidthUpBytes} DOWN: {bandwidthDownBytes}",
-		"tooltip-format-disconnected": "Disconnected",
+		// "tooltip-format-disconnected": "Disconnected",
+		"tooltip-format-disconnected": "Niet verbonden",
 	},
 	"battery": {
 		"states": {

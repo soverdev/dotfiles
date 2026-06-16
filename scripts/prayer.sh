@@ -21,6 +21,9 @@ COUNTRY="__COUNTRY__"
 #       pick the first city location. Consider automatic location detection in this case.
 CITY="__CITY__"
 
+# Locale for text (default for dates: system locale, default for text: EN)
+LOCALE="nl_NL.UTF-8"
+
 ## METHOD - Used in local calculations for Fajr and Isha times
 #
 # 1 - Umm Al-Qura University, Makkah (جامعة أم القرى)
@@ -697,7 +700,7 @@ elif [[ "$1" == "-t" ]]; then
 	# Infinite loop updating time and date as soon as they change
 	while true; do
 		hijri_date=$(get_hijri)
-		english_date="<span font='16' rise='-2000'></span> $(date +'%H:%M') <span font='16' rise='-2000'></span> $(date +'%a, %d %B %Y')"
+		english_date="<span font='16' rise='-2000'></span> $(date +'%H:%M') <span font='16' rise='-2000'></span> $(LC_TIME=$LOCALE date +'%a, %d %B %Y')"
 		arabic_date="$(date +'%H:%M' | to_arabic_num) <span font='16' rise='-2000'></span> $hijri_date <span font='16' rise='-2000'></span>"
 
 		printf "{\"text\": \"$english_date\", \"alt\": \"$arabic_date\", \"tooltip\": \"$hijri_date\" }\n"
@@ -746,6 +749,12 @@ elif [[ "$1" == "-r" ]]; then
 		"Last Third") PRAYER_INDEX=7;;
 	esac
 
+	if [[ "$LOCALE" == "nl_NL.UTF-8" ]]; then
+		ROFI_MSG="Gebedstijden"
+	else
+		ROFI_MSG="Prayer times"
+	fi
+
 	# Left-to-Right mark for Arabic
 	LRM=$'\u200E'
 
@@ -758,7 +767,7 @@ elif [[ "$1" == "-r" ]]; then
 		echo "Isha:       $ISHA_TIME ———————————————————— $(echo $ISHA_TIME | to_arabic_num)     :$LRMالعشاء$LRM"
 		echo "Midnight:   $MIDNIGHT_TIME ———————————————————— $(echo $MIDNIGHT_TIME | to_arabic_num) :$LRMمنتصف الليل$LRM"
 		echo "Last Third: $LAST_THIRD_TIME ———————————————————— $(echo $LAST_THIRD_TIME | to_arabic_num)  :$LRMالثلث الأخير$LRM"
-	} | rofi -dmenu -mesg "󰥹 Prayer times" -theme-str "$ROFI_THEME" -selected-row $PRAYER_INDEX
+	} | rofi -dmenu -mesg "󰥹 $ROFI_MSG" -theme-str "$ROFI_THEME" -selected-row $PRAYER_INDEX
 else
 	FAJR_TIME=$(extract_time "$CYCLE_DATE" "Fajr")
 	SUNRISE_TIME=$(extract_time "$CYCLE_DATE" "Sunrise")
