@@ -1,7 +1,7 @@
 [global]
 	# Colors
 	frame_color = "__COL1__"
-	background = "__BG__"
+	background = "__LIGHTERBG__"
 	foreground = "__FG__"
 	highlight = "__COL1__"
 
@@ -9,11 +9,11 @@
 	follow = mouse
 	
 	# Geometry
-	width = 300
-	height = 80
-	offset = 10x10
+	width = (300, 300)
+	height = (0, 80)
+	offset = (10, 10)
 		
-	font = JetBrainsMono NFM Medium 10
+	font = JetBrainsMono NF Medium 10
 	
 	# Markup parsing
 	markup = full
@@ -23,7 +23,7 @@
 	vertical_alignment = center
 	
 	# Split notifications into multiple lines
-	word_wrap = false
+	word_wrap = true
 	
 	# Hide number of duplicate notifications
 	hide_duplicate_count = true
