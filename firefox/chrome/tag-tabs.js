@@ -1,4 +1,4 @@
-/* Last working version: Mozilla Firefox 151.0.3 */
+/* Last working version: Mozilla Firefox 152.0 */
 const SITES = {
 	"https://discord.com":     "discord",
 	"https://mail.google.com": "gmail",

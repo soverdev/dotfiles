@@ -1,4 +1,4 @@
-/* Last working version: Mozilla Firefox 151.0.3 */
+/* Last working version: Mozilla Firefox 152.0 */
 const sss = Cc["@mozilla.org/content/style-sheet-service;1"].getService(Ci.nsIStyleSheetService);
 const io = Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService);
 const ds = Cc["@mozilla.org/file/directory_service;1"].getService(Ci.nsIProperties);

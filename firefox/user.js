@@ -1,3 +1,5 @@
+/* Last working version: Mozilla Firefox 152.0 */
+
 // Enable customization
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 user_pref("svg.context-properties.content.enabled", true);
@@ -73,4 +75,10 @@ user_pref("signon.generation.enabled", false);
 // Disable previous/next page swiping
 user_pref("browser.gesture.swipe.left", "");
 user_pref("browser.gesture.swipe.right", "");
+
+// Disable weather widget on new tab page
+user_pref("browser.newtabpage.activity-stream.widgets.weather.enabled", false);
+
+// Disable bright purple gradient on new private tab
+user_pref("browser.privatebrowsing.felt-privacy-v1", false);
 

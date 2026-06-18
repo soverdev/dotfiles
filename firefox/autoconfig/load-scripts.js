@@ -1,4 +1,4 @@
-/* Last working version: Mozilla Firefox 151.0.3 */
+/* Last working version: Mozilla Firefox 152.0 */
 const _ds = Cc["@mozilla.org/file/directory_service;1"].getService(Ci.nsIProperties);
 const _io = Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService);
 

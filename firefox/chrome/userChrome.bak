@@ -1,4 +1,4 @@
-/* Last working version: Mozilla Firefox 151.0.3 */
+/* Last working version: Mozilla Firefox 152.0 */
 
 @import "fonts.css";
 
@@ -48,9 +48,9 @@
 
 /* Change popup colors */
 menupopup, panel {
-	--panel-background: var(--lighter-bg-color) !important;
+	--panel-background-color: var(--lighter-bg-color) !important;
 	--panel-border-color: var(--bg-color) !important;
-	--panel-color: var(--fg-color) !important;
+	--panel-text-color: var(--fg-color) !important;
 }
 
 menuitem[_moz-menuactive="true"] {
@@ -582,6 +582,16 @@ menuitem#context_openANewTab {
 	display: none !important;
 }
 
+/* Hide move tab menu */
+menu#context_moveTabOptions {
+	display: none !important;
+}
+
+/* Hide share tab button */
+menu.share-tab-url-item {
+	display: none !important;
+}
+
 /* Hide add tab to new group button */
 menuitem#context_moveTabToNewGroup {
 	display: none !important;
@@ -597,8 +607,13 @@ menuitem#context_closeDuplicateTabs {
 	display: none !important;
 }
 
-/* Hide close multiple tabs button */
+/* Hide close multiple tabs menu */
 menu#context_closeTabOptions {
+	display: none !important;
+}
+
+/* Hide send to mobile menu */
+menu#context_sendTabToDevice {
 	display: none !important;
 }
 
@@ -695,6 +710,11 @@ menuitem#context-sendimage {
 	display: none !important;
 }
 
+/* Hide send to mobile menu */
+menu#context-sendpagetodevice {
+	display: none !important;
+}
+
 /* Hide bookmark link button */
 menuitem#context-bookmarklink {
 	display: none !important;
@@ -713,6 +733,7 @@ menuitem#context-openlinkinsplitview {
 /* Hide separators */
 menuseparator#context-sep-screenshots,
 menuseparator#context-sep-selectall,
+menuseparator#context-sep-sendpagetodevice,
 menuseparator#context-sep-navigation {
 	display: none !important;
 }
