@@ -18,9 +18,9 @@
 	--panel-color: #ffffff !important;
 
 	/* Toolbar button customization */
-	--toolbarbutton-hover-background: transparent !important;
-	--toolbarbutton-active-background: transparent !important;
-	--toolbarbutton-active-outline-color: var(--accent-color) !important;
+	--toolbarbutton-background-color-hover: transparent !important;
+	--toolbarbutton-background-color-active: transparent !important;
+	--toolbarbutton-outline-color-active: var(--accent-color) !important;
 	--toolbarbutton-icon-fill-attention: var(--accent-color) !important;
 
 	--color-accent-primary: var(--accent-color) !important;
@@ -715,6 +715,11 @@ menu#context-sendpagetodevice {
 	display: none !important;
 }
 
+/* Hide send link to mobile menu */
+menu#context-sendlinktodevice {
+	display: none !important;
+}
+
 /* Hide bookmark link button */
 menuitem#context-bookmarklink {
 	display: none !important;
@@ -734,6 +739,7 @@ menuitem#context-openlinkinsplitview {
 menuseparator#context-sep-screenshots,
 menuseparator#context-sep-selectall,
 menuseparator#context-sep-sendpagetodevice,
+menuseparator#context-sep-sendlinktodevice,
 menuseparator#context-sep-navigation {
 	display: none !important;
 }
